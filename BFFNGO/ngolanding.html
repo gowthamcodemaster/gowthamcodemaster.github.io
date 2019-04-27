@@ -1,0 +1,243 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Page</title>
+<style>
+img {vertical-align: middle;}
+* {box-sizing: border-box;}
+body{
+//background-image:url('coverphoto.jpg');
+background-size:cover;
+background-repeat:no-repeat;
+
+}
+.header{
+
+background-color:green;
+padding:20px;
+}
+.logo{
+display:block;
+width:120px;
+height:60px;
+margin-left:auto;
+margin-right:auto;
+transition: transform 8s;
+}
+.logo:hover{
+
+transform:scale(1.2);
+}
+.navigation{
+
+text-decoration:none;
+color:white;
+font-weight:bold;
+padding: 10px;
+}
+
+.navigation:hover{
+
+font-size:1.5em;
+color:blue;
+
+}
+.socicon{
+
+width:60px;
+height:35px;
+float:right;
+padding:0px,10px,10px,10px;
+}
+
+.images{
+width:70%;
+height:30%;
+margin:auto;
+postion:relative;
+display:none;
+}
+.dots{
+width:20px;
+height:20px;
+border-radius:50%;
+background-color:grey
+}
+#Goals{
+background-color:#383433;
+width:25%;
+height:35%;
+margin:15px;
+padding:10px;
+float:left;
+}
+#AboutUs, #contactform{
+background-color:#383433;
+width:25%;
+height:35%;
+margin:15px;
+padding:10px;
+float:left;
+overflow:scroll;
+}
+#schedulebt{
+
+background-color:green;
+border-radius:20px;
+padding:10px;
+color:white;
+font-weight:bold;
+font-family:verdena;
+
+}
+
+.field{
+font-size:23px;
+font-family:'Trebuchet MS';
+border:none;
+padding:10px;
+border-bottom:2px solid red;
+margin:20px;
+}
+
+::-webkit-input-placeholder {
+ color: green;
+ opacity:1;
+}
+input:focus::-webkit-input-placeholder{
+color:white;
+
+}
+.labeldesign{
+
+color:white;
+font-size:23px;
+font-family:'Trebuchet MS';
+display:none;
+}
+</style>
+</head>
+<body onload="samp()">
+<div class="header">
+<img src="Logo.png" class="logo">
+<nav>
+<a href="#" class="navigation">Home</a>
+<a href="#" class="navigation">Program</a>
+<a href="#" class="navigation">Donate</a>
+<a href="#" class="navigation">Contact Us</a>
+<a href="#" class="navigation">Event Galary</a>
+<a href="#" class="navigation">Join Us</a>
+<a href="#" class="socila"><img src="fbicon.png" class="socicon"></a>
+<a href="#" class="socila"><img src="twittericon.png" class="socicon"></a>
+</nav>
+</div>
+<div class="fade" style="margin:20px;">
+<img src="slide1.jpg" id="image1" class="images">
+<img src="slide3.jpg" id="image3" class="images">
+<img src="slide4.jpg" id="image2" class="images">
+<img src="slide5.jpg" id="image4" class="images">
+</div>
+<center><div style="display:inline;padding:5px;text-align:center">
+<button type="button" class="dots" id="button1" onclick="imgchange2()"></button>
+<button type="button" class="dots" id="button2" onclick="imgchange()"></button>
+<button type="button" class="dots" id="button3" onclick="imgchange3()"></button>
+<button type="button" class="dots" id="button4" onclick="imgchange4()"></button>
+</div>
+</center>
+<div id="Goals">
+<h3 style="color:white;border-bottom:2px dotted lightpink;font-size:32px;font-family:'Trebuchet MS'">Our Goals</h3>
+<p style="color:white;font-size:23px;font-family:'Trebuchet MS'">Student are the future building blocks of the country. If they're equipped with good skills & maturity, The country will be well developed in a right manner at right time. So our <strong>Goal</strong> is to empower the students with highly qualified <strong>technical & situation management skills</strong> by teaching our wonderful programs.  </p>
+</div>
+<div id="AboutUs">
+<h3 style="color:white;border-bottom:2px dotted lightpink;font-size:32px;font-family:'Trebuchet MS'">About Us</h3>
+<p style="color:white;font-size:23px;font-family:'Trebuchet MS'">BFF Education Service is the Non-Government Organization that provides the knowledge on current IT Trends, Communication Skills,Personality traits & Career Guidance. Our Trainings enables a person to make him improve himself in these 2 aspects of life:<ul><li style="color:white;font-size:23px;font-family:'Trebuchet MS'">Career</li> <li style="color:white;font-size:23px;font-family:'Trebuchet MS'"> Personality</li> </ul> </p>
+<p style="color:white;font-size:23px;font-family:'Trebuchet MS'">This organization completely work as a service without making any business. Provide us opportunity to Server you.</p>
+</div>
+<div id="contactform">
+<form class="go-bottom">
+  <h3  style="color:white;border-bottom:2px dotted lightpink;font-size:32px;font-family:'Trebuchet MS'">Schedulue A Counciling With Us</h3>
+  
+  <label class="labeldesign" id="namelab">Name:</label> <br>
+  <input type="text" id="fname" class="field" placeholder="Enter the name" onfocus="labeldis('namelab')"><br>
+
+  <label class="labeldesign" id="emaillab">Email Id:</label> <br>
+  <input type="email" id="mailid" class="field" placeholder="Enter the Mail Id" onfocus="labeldis('emaillab')"><br>
+
+  <label class="labeldesign" id="contactlab">Contact Number:</label> <br>
+  <input type="tel" id="contact" class="field" placeholder="Enter the Contact Number" onfocus="labeldis('contactlab')"><br>
+
+
+  <label class="labeldesign" id="timelab">Call Time:</label> <br>
+  <input type="time" id="fname" class="field" placeholder="Enter the Appointment Time:" onfocus="labeldis('timelab')"><br>
+
+  <center><button type="button" id="schedulebt"> Schedule Meeting</button> </center>
+</form>
+</div>
+<script>
+var imgarr=document.getElementsByClassName("images");
+var btnarr=document.getElementsByClassName("dots");
+var index=0;
+function samp(){
+for(i=0;i<4;i++){
+imgarr[i].style.display="none";
+}
+index++;
+if(index>4){
+index=1;
+}
+imgarr[index-1].style.display="block";
+setTimeout(samp,2000);
+}
+function imgchange(){
+for(i=0;i<4;i++){
+btnarr[i].style.background="grey";
+}
+document.getElementById("button2").style.background="red";
+for(i=0;i<4;i++){
+imgarr[i].style.display="none";
+}
+document.getElementById('image3').style.display="block";
+//document.getElementById('image1').style.display="none";
+}
+function imgchange2(){
+for(i=0;i<4;i++){
+imgarr[i].style.display="none";
+}
+document.getElementById('image1').style.display="block";
+//document.getElementById('image3').style.display="none";
+for(i=0;i<4;i++){
+btnarr[i].style.background="grey";
+}
+document.getElementById('button1').style.background="red";
+}
+function imgchange3(){
+for(i=0;i<4;i++){
+imgarr[i].style.display="none";
+}
+document.getElementById('image2').style.display="block";
+//document.getElementById('image3').style.display="none";
+for(i=0;i<4;i++){
+btnarr[i].style.background="grey";
+}
+document.getElementById('button3').style.background="red";
+}
+
+function imgchange4(){
+for(i=0;i<4;i++){
+imgarr[i].style.display="none";
+}
+document.getElementById('image4').style.display="block";
+//document.getElementById('image2').style.display="none";
+for(i=0;i<4;i++){
+btnarr[i].style.background="grey";
+}
+document.getElementById('button4').style.background="red";
+}
+function labeldis(x){
+
+document.getElementById(x).style.display="block";
+
+}
+</script>
+</body>
+</html>

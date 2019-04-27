@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Sampe</title>
+<style>
+</style>
+</head>
+<body onload="samp()">
+<div class="fade">
+<img src="slide1.jpg" id="image1" class="images">
+<img src="slide3.jpg" id="image3" class="images">
+<img src="slide4.jpg" id="image2" class="images">
+<img src="slide5.jpg" id="image4" class="images">
+</div>
+<div style="display:inline;padding:5px;text-align:center">
+<button type="button" style="width:20px;height:20px;border-radius:50%;color:grey" onclick="imgchange2()"></button>
+<button type="button" style="width:20px;height:20px;border-radius:50%;color:grey" onclick="imgchange()"></button>
+<button type="button" style="width:20px;height:20px;border-radius:50%;color:grey" onclick="imgchange3()"></button>
+<button type="button" style="width:20px;height:20px;border-radius:50%;color:grey" onclick="imgchange4()"></button>
+</div>
+<script>
+img1=document.getElementById('image1');
+img2=document.getElementById('image2');
+img3=document.getElementById('image3');
+img4=document.getElementById('image4');
+var imgarr=document.getElementsByClassName("images");
+var index=0;
+function samp(){
+/*for(i=0;i<4;i++){
+imgarr[i].style.display="none";
+}*/
+index++;
+if(index<1 ||index>4){
+index=1;
+}
+imgarr[index].style.display="block";
+setTimeout(samp,2000);
+}
+function imgchange(){
+document.getElementById('image3').style.display="block";
+document.getElementById('image1').style.display="none";
+}
+function imgchange2(){
+document.getElementById('image1').style.display="block";
+document.getElementById('image3').style.display="none";
+}
+function imgchange3(){
+document.getElementById('image2').style.display="block";
+document.getElementById('image3').style.display="none";
+}
+
+function imgchange4(){
+document.getElementById('image4').style.display="block";
+document.getElementById('image2').style.display="none";
+}
+
+
+</script>
+</body>
+</html>
